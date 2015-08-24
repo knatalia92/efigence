@@ -1,0 +1,42 @@
+@import "_variables";
+
+.container-fluid {
+    padding: 0;   
+}
+
+.login-options {
+    border-bottom: 1px solid @navLight;
+    background-color: @navBg; 
+    
+    ul li {
+        list-style: none;
+        display: inline;
+        
+        a {
+            color: @fontLight;
+        }
+    }
+}
+
+.navbar {
+    border-radius: 0;
+    background-color: @navDarkBg;   
+    
+    .navbar-brand  {
+        color: @fontLight;
+    }
+    
+    .nav {
+        li a {
+            color: darken(@fontLight, 20%);
+        }
+    }
+    
+    .navbar-form .search {
+        padding: 7px 15px;
+        border: 1px solid @navLight;
+        box-shadow: 2px 2px 2px #445 inset;
+        color: @fontLight;
+        background: transparent;
+    }
+}

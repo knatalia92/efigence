@@ -4,6 +4,9 @@
   "homepage": "https://github.com/efigence/camp_barebone",
   "authors": [],
   "license": "MIT",
+  "dependencies": {
+    "bootstrap": "latest"  
+  },
   "ignore": [
     "**/.*",
     "node_modules",
