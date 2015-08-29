@@ -1,0 +1,72 @@
+@import "_variables";
+
+.contact {
+	height: 600px;
+	position: relative;
+
+	#googlemaps {
+		position: absolute;
+		top: 0;
+		left: 0;
+	    width: 100%;
+	    height: 600px;
+	}
+
+	.contact-field {
+		position:  absolute;
+		top: 40px;
+		left: 47%;
+		height: auto;
+		z-index: 9999;
+		padding: 30px 40px;
+		background-color: @contactFormBg;
+
+		address {
+			ul li {
+				list-style: none;
+				font-family: Arial, sans-serif;
+
+				&:nth-of-type(2), &:nth-of-type(5) {
+					margin-bottom: 20px;
+				}
+			}
+		}
+
+		h1.title {
+			margin-bottom: 65px;
+		}
+
+		form {
+			margin-top: 105px;
+		}
+
+		.form-control {
+			margin-bottom: 10px;
+			border: 1px solid $fontBase;
+			border-radius: 0;
+			box-shadow: 2px 2px 3px rgba(63,53,54,.3) inset;
+			resize: none;
+		}
+
+		textarea {
+			height: 190px;
+		}
+
+		.btn {
+			padding: 12px 30px;
+			border-radius: 0px;
+			background-color: @accent;
+			color: @contactFormBg;
+		}
+	}
+}
+
+
+@media screen and (max-width: 992px) {
+	.contact {
+		.contact-field {
+			left: 40px;
+			right: 40px;
+		}
+	}
+}

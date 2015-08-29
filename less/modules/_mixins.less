@@ -1,0 +1,13 @@
+.imageBg(@imgName) {
+	background: url("../img/@{imgName}") no-repeat top center;
+}
+
+.clearfix {
+	&:before, &:after {     
+		content: "";     
+		display: table;  
+	}   
+	&:after {    
+		clear:both;   
+	} 
+}

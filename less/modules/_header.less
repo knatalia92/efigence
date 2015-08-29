@@ -1,42 +1,109 @@
 @import "_variables";
+@import "_mixins";
 
 .container-fluid {
     padding: 0;   
 }
 
+
 .login-options {
-    border-bottom: 1px solid @navLight;
-    background-color: @navBg; 
+    border-bottom: 1px solid @border;
+    background-color: @lightestBg;
+    overflow: hidden; 
+
     
     ul li {
+        float: right;
+        display: inline-block;
+        padding: 10px 30px;
         list-style: none;
-        display: inline;
+        .clearfix;
         
         a {
-            color: @fontLight;
+            color: @fontBase;
         }
     }
 }
 
 .navbar {
+    border: 0;
+    margin-bottom: 0;
+    border-bottom: 1px solid  @border;
     border-radius: 0;
-    background-color: @navDarkBg;   
-    
+    .imageBg("navbg.jpg");
+
     .navbar-brand  {
-        color: @fontLight;
+        color: @fontBase;
     }
     
     .nav {
+        float: none;
+        display: inline-block;
+        text-align: center;
+
         li a {
-            color: darken(@fontLight, 20%);
+            color: @fontBase;
+            margin-bottom: 3px;
+
+            &:hover {
+                background: transparent;
+                border-bottom: 3px solid @accent;
+                margin-bottom: 0px;
+            }
         }
     }
-    
+
+    .minified-menu {
+            display: none;
+    }
+
     .navbar-form .search {
+        position: relative;
+        width: 100%;
         padding: 7px 15px;
-        border: 1px solid @navLight;
+        border: 1px solid @border;
         box-shadow: 2px 2px 2px #445 inset;
-        color: @fontLight;
-        background: transparent;
+        color: @fontBase;
+        background: @lightBg;
+    }
+}
+
+
+.video-container {
+    height: 800px;
+    .imageBg("bg.jpg");
+    background-size: cover;
+
+    .vid {
+        margin-top: 205px;
+        background: linear-gradient(rgba(174,214,249,.5),rgba(255,255,255,0));
+        box-shadow: 3px -3px 5px rgba(0,0,0,.35);
+    }
+}
+
+/**** PLACES SUBPAGE ****/
+.subpage-image {
+    height: 400px;
+    .imageBg("subpagebg.jpg");
+    background-size: cover;
+}
+
+/**** MEDIA QUERIES ***/
+
+@media screen and (max-width: 992px) {
+    .navbar {
+        .minified-menu {
+            display: inline-block;
+        }
+
+        .standard-menu {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .search-content {
+        display: none;
     }
 }
