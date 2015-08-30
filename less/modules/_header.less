@@ -27,18 +27,20 @@
 .navbar {
     border: 0;
     margin-bottom: 0;
-    border-bottom: 1px solid  @border;
+    border-bottom: 1px solid @border;
     border-radius: 0;
     .imageBg("navbg.jpg");
 
     .navbar-brand  {
         color: @fontBase;
+        padding-top: 18px;
     }
     
     .nav {
         float: none;
         display: inline-block;
         text-align: center;
+        padding-top: 4px;
 
         li a {
             color: @fontBase;
@@ -49,6 +51,46 @@
                 border-bottom: 3px solid @accent;
                 margin-bottom: 0px;
             }
+
+            &:focus {
+                background: transparent;
+            }
+        }
+    }
+
+    .cover-menu-content {
+        display: none;    
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 99999999;
+        width: 100%;
+        height: 100%;
+        background-color: @darkBg;
+        opacity: 0.75;
+
+        .icon-close {
+            display: inline-block;
+            font-size: 3em;
+            position: absolute;
+            top: 30px;
+            right: 60px;
+            cursor: pointer;
+        }
+
+        .menu-title {
+            margin-top: 100px;
+            margin-bottom: 40px;
+            font-size: 4.5em;
+            color: @accent;
+        }
+
+        ul li a {
+            display: inline-block;
+            padding: 10px 0;
+            font-size: 2.5em;
+            font-weight: 300;
+            color: @fontBase;
         }
     }
 
@@ -56,7 +98,6 @@
             display: none;
     }
 }
-
 
 .video-container {
     height: 800px;
@@ -67,6 +108,25 @@
         margin-top: 205px;
         background: linear-gradient(rgba(174,214,249,.5),rgba(255,255,255,0));
         box-shadow: 3px -3px 5px rgba(0,0,0,.35);
+    }
+
+    video {
+        position: relative;
+        width: 100%;
+        margin-top: 15px;
+        margin-bottom: 20px;
+    }
+
+    .video-controls {
+        .play-pause {
+            position: absolute;
+            top: 80px;
+            left: calc(62.5% - 25px);
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background: url(../img/videoplay.png) no-repeat;
+        }
     }
 }
 
