@@ -1,0 +1,63 @@
+@import "_variables";
+@import "_mixins";
+
+/********** LINKS *************/
+
+.read-more {
+	color: @accent;
+	text-decoration: underline;
+	font-family: Arial, sans-serif;
+	font-size: 1.17em;
+}
+
+/********** BUTTONS *************/
+
+.btn {
+	padding: 12px 30px;
+	border-radius: 0px;
+	background-color: @accent;
+	color: @fontBase;
+}
+
+/********** PAGINATION *************/
+
+.paginate {
+	background-color: @blueBg;
+
+	a {
+		color: @fontBase;
+		text-decoration: none;
+	}
+
+	.prev, .next, .list {
+		float: left;
+		font-size: 2em;
+		font-weight: 300;
+		padding: 8px 13px;
+		margin: 20px 0;
+
+		& > a {
+			display: inline-block;
+			margin-top: 8px;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+		.clearfix
+	}
+	
+	ul li {
+		list-style: none;
+		float: left;
+		.clearfix; 
+		padding: 8px 13px;
+
+		&:hover {
+			background-color: @accent;
+		}
+
+		a {
+			text-decoration: none;
+			color: @fontBase;
+		}
+	}
+}
