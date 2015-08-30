@@ -4,8 +4,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Efigence camp</title>
-    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="public/css/app.css">
+    <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/app.css">
 </head>
 
 <body>
@@ -21,7 +21,7 @@
             <nav class="clear navbar">
                 <div class="container-fluid">
                     <div class="col-md-2 col-sm-3 col-xs-8">
-                        <a class="navbar-brand" href="index.html"><span class="icon" data-icon="&#xe602;"></span><span class="bold">Hipster</span> Trip</a>
+                        <a class="navbar-brand" href="../index.html"><span class="icon" data-icon="&#xe602;"></span><span class="bold">Hipster</span> Trip</a>
                     </div>
                     <div class="col-md-8 col-sm-5 col-xs-4 text-center">
                         <ul class="nav navbar-nav minified-menu">
@@ -44,34 +44,83 @@
                 </div>
             </nav>
             <section class="subpage-image">
-              <div class="col-md-3 col-md-offset-1">
-                <h1 class="title"> Miejscówki </h1>
-              </div>
-              <div class="col-md-4">
-                <p class="description"> Wybierz na mapie </p>
-                <p class="description"> Sortuj wg </p>
-                <p class="description"> Oceny: od najnowszej </p><span class="icon"></span>
-                <p class="description"> Ceny: od najniższej </p><span class="icon"></span>
-                <p class="description"> Wybierz okres od: </p>
-                <p class="description"> do: </p>
-              </div>
-              <div class="col-md-3">
-
-              </div>
             </section>
         </div>
     </header>
 
     <section class="table-options">
-
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-md-offset-1">
+                    <h1 class="title"> Miejscówki </h1>
+                </div>
+                <div class="col-md-4">
+                    <p> Wybierz: </p> <a href="#"> na mapie </a>
+                    <p> Sortuj wg: </p>
+                    <a href="#"> Oceny: od najnowszej </a><span class="icon" data-icon="&#xe602;"></span>
+                    <a href="#"> Ceny: od najniższej </a><span class="icon" data-icon="&#xe602;"></span>
+                </div>
+                <div class="col-md-3">
+                    <p> Wybierz okres od: </p> <a href="#"> 21.02.2015 </a> <span class="icon" data-icon="&#xe602;"></span>
+                    <p> do: </p> <a href="#"> 21.02.2015 </a> <span class="icon" data-icon="&#xe602;"></span>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section class="information-table">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3 col-md-offset-1">
+                    <img src="../public/img/gallery1.jpg" alt="miejscowka1">
+                </div>
+                 <div class="col-md-4">
+                    <article>
+                        <h1 class="news-title"> Hotel Mazurski SPA </h1>
+                        <h2 class="news-details"> Mikołajki, Warmińsko - Mazurskie </h2>
+                        <p class="description"> 
+                        Proin eget tempus velit. Vestibulum at lobortis augue. Aliquam scelerisque erat sed dolor interdum, id gravida quam consectetur. Quisque egestas consequat tellus. Cras metus est, accumsan at libero ac, elementum bibendum nisi. Vivamus vel laoreet orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in arcu dui. Proin eu mauris nunc. Suspendisse posuere, odio vitae cursus euismod, quam nibh sagittis metus, in tempor justo quam sed nibh.
+                        </p>
+                        <a class="read-more"> Szczegóły </a>
+                    </article>
+                </div>
+                <div class="col-md-1">
+                    <span class="icon" data-icon="&#xe600;"></span>
+                    <span class="icon" data-icon="&#xe601;"></span>
+                    <span class="icon" data-icon="&#xe610;"></span>
+                    <span class="parking"> P </span>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn"> Szczegóły </button>
+                </div>
+            </div>
 
+           
     </section>
 
-    <section class="pagination">
-
+    <section class="paginate">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <span class="icon" data-icon="&#xe614;"></span>
+                    <a href="#"> Poprzednia strona </a>
+                    <ul>
+                        <li><a href="#"> 1 </a></li>
+                        <li><a href="#"> 2</a></li>
+                        <li><a href="#"> 3 </a></li>
+                        <li><a href="#"> 4 </a></li>
+                        <li><a href="#"> 5 </a></li>
+                        <li><a href="#"> 6 </a></li>
+                        <li><a href="#"> 7 </a></li>
+                        <li><a href="#"> 8 </a></li>
+                        <li><a href="#"> 9 </a></li>
+                        <li><a href="#"> 10 </a></li>
+                    </ul>
+                    <a href="#"> Następna strona </a>
+                    <span class="icon" data-icon="&#xe614;"></span>
+                </div>
+            </div>
+        </div>
     </section>
    
     <footer>
@@ -87,10 +136,8 @@
             </div>
         </div>
         </footer>
-        <script src="bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-        <script src="js/script.js"></script>
+        <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>
