@@ -9,7 +9,6 @@
     border-bottom: 1px solid @border;
     background-color: @lightestBg;
     overflow: hidden; 
-
     
     ul li {
         .icon {
@@ -37,8 +36,13 @@
     .imageBg("navbg.jpg");
 
     .navbar-brand  {
-        color: @fontBase;
         padding-top: 18px;
+        color: @fontBase;
+
+        .icon {
+            display: inline-block;
+            padding-right: 10px;
+        }
     }
     
     .nav {
@@ -125,12 +129,16 @@
     .video-controls {
         .play-pause {
             position: absolute;
-            top: 80px;
+            font-size: 100px;
+            color: darken(@accentGrey, 10%);
+            top: 60px;
             left: calc(62.5% - 25px);
             display: inline-block;
-            width: 100px;
-            height: 100px;
-            background: url(../img/videoplay.png) no-repeat;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: none;
+            }
         }
     }
 }
