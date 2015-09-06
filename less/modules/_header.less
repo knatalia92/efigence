@@ -46,10 +46,15 @@
     }
     
     .nav {
-        float: none;
         display: inline-block;
         text-align: center;
         padding-top: 4px;
+        width: 100%;
+
+        li {
+            display: inline-block;
+            float: none;
+        }
 
         li a {
             color: @fontBase;
@@ -67,44 +72,8 @@
         }
     }
 
-    .cover-menu-content {
-        display: none;    
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 99999999;
-        width: 100%;
-        height: 100%;
-        background-color: @darkBg;
-        opacity: 0.75;
-
-        .icon-close {
-            display: inline-block;
-            font-size: 3em;
-            position: absolute;
-            top: 30px;
-            right: 60px;
-            cursor: pointer;
-        }
-
-        .menu-title {
-            margin-top: 100px;
-            margin-bottom: 40px;
-            font-size: 4.5em;
-            color: @accent;
-        }
-
-        ul li a {
-            display: inline-block;
-            padding: 10px 0;
-            font-size: 2.5em;
-            font-weight: 300;
-            color: @fontBase;
-        }
-    }
-
     .minified-menu {
-            display: none;
+        display: none;
     }
 }
 
