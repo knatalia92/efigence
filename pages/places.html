@@ -6,9 +6,11 @@
     <title>Efigence camp</title>
     <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../public/css/app.css">
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../js/app/app.js"></script>
 </head>
 
-<body>
+<body ng-app="hipsterTrip" ng-controller="placesCtrl as places">
     <header>
         <div class="container-fluid">
             <section class="login-options">
@@ -65,23 +67,63 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <p> Wybierz okres od: </p> <input type="date" value="2015-09-05"> <span class="icon" data-icon="&#xe606;"></span>
-                    <p> do: </p>  <input type="date" value="2015-09-06"> <span class="icon" data-icon="&#xe606;"></span>
+                    <p> Wybierz okres od: </p> <span>2015-09-05</span> <span class="icon" data-icon="&#xe606;"></span>
+                    <p> do: </p> <span>2015-09-06</span> <span class="icon" data-icon="&#xe606;"></span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="information-table">
+   <section class="information-table">
         <div class="container-fluid">
+            <div ng-repeat="p in places.resultTable.places" class="row">
+                <div class="col-md-3 col-md-offset-1 col-sm-3 col-xs-8">
+                    <img src="../public/img/gallery1.jpg" alt="miejscowka1">
+                </div>
+                 <div class="col-md-4 col-sm-6 col-xs-12">
+                    <article>
+                        <h1 class="news-title"> {{ p.name }} </h1>
+                        <h2 class="news-details">{{ p.place }}, {{ p.district }} </h2>
+                        <div class="grade">
+                            <span ng-repeat="star in places.getRange(p.starts) track by $index" class="icon" data-icon="&#xe60c;"></span>
+                        </div>
+                        <p class="description"> 
+                            {{ p.description }}
+                        </p>
+                        <a href="#" class="read-more"> Szczegóły </a>
+                    </article>
+                </div>
+                <div class="col-md-1 col-sm-1 options">
+                <a ng-show="{{p.wifi}}" href="#" data-toggle="tooltip" title="Wifi" class="icon" data-icon="&#xe600;"></a>
+                <a ng-show="{{p.tv}}" href="#" data-toggle="tooltip" title="TV" class="icon" data-icon="&#xe602;"></a>
+                <a ng-show="{{p.food}}" href="#" data-toggle="tooltip" title="Restauracje" class="icon" data-icon="&#xe60a;"></a>
+                <a ng-show="{{p.paypass}}" href="#" data-toggle="tooltip" title="Możliwośc płatności kartą debetową" class="icon" data-icon="&#xe601;"></a>
+                <a ng-show="{{p.swimming}}" href="#" data-toggle="tooltip" title="Kąpieliska" class="icon" data-icon="&#xe604;"></a>
+                <a ng-show="{{p.airport}}" href="#" data-toggle="tooltip" title="Lotnosko" class="icon" data-icon="&#xe603;"></a>
+                <a ng-show="{{p.parking}}" href="#" data-toggle="tooltip" title="Parking" class="icon"> P </a>
+                </div>
+                <div class="col-md-2 col-sm-3 col-xs-6 price-details">
+                    <h1 class="rating"> {{places.getOpinion(p.score)}} {{ p.score }}/10 </h1>
+                    <h2 class="opinions-number"> Ocena na podstawie {{ p.opinion_count }} opinii </h2>
+                    <h3 class="before-discount"> {{ p.oldprice }},00 PLN </h3>
+                    <h4 class="after-discount">{{ p.price }},00 <span class="grey"> PLN </span> </h4>
+                    <h5 class="nights"> Cena za 3 noce </h5>
+                    <button class="btn"> Zarezerwuj teraz </button>
+                </div>
+            </div>
         </div> 
     </section>
+
 
     <section class="paginate">
         <div class="container">
             <div class="row">
                 <div class="col-md-10 text-center">
-                    <div class="list"></div>
+                    <div class="list">
+                        <ul>
+                            <li ng-click="places.getPage($index+1)" class="page" ng-repeat="p in places.getRange(places.resultTable.total_pages) track by $index"> {{ $index + 1}} </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -107,8 +149,6 @@
 
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
     <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../js/script.js"></script>
-    <script src="../js/data.js"></script>
 </body>
 
 </html>

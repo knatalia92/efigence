@@ -6,9 +6,11 @@
     <title>Efigence camp</title>
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="public/css/app.css">
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="js/app/app.js"></script>
 </head>
 
-<body>
+<body ng-app="hipsterTrip">
     <header>
         <div class="container-fluid">
             <section class="login-options">
@@ -328,12 +330,15 @@
                         </ul>
                     </address>
                 </div>
-                <div class="col-sm-6 col-xs-6">
+                <div class="col-sm-6 col-xs-6" ng-controller="formCtrl as form">
                     <form class="contact-form" enctype='application/json'>
-                        <input class="form-control full-name" type="text" placeholder="Imię i nazwisko">
-                        <input class="form-control email" type="text" placeholder="Email">
-                        <textarea class="form-control message" placeholder="Wiadomość"></textarea>
-                        <input class="btn" type="submit" value="Wyślij wiadomość">
+                        <input ng-model="form.user.name" class="form-control full-name" name="name" type="text" placeholder="Imię i nazwisko">
+                        <span ng-repeat=" err in form.error.name"> {{ err }} </span>
+                        <input ng-model="form.user.email" class="form-control email" name="email" type="text" placeholder="Email">
+                        <span ng-repeat=" err in form.error.email"> {{ err }} </span>
+                        <textarea ng-model="form.user.message" class="form-control message" name="message" placeholder="Wiadomość"></textarea>
+                        <span ng-repeat=" err in form.error.message"> {{ err }} </span>
+                        <input ng-click="form.submitForm($event)" class="btn" type="submit" value="Wyślij wiadomość">
                     </form>
                 </div>
             </div>
@@ -359,7 +364,6 @@
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script src="js/script.js"></script>
     <script src="js/mainpage.js"></script>
     <script src="js/googlemaps.js"></script>
 </body>
