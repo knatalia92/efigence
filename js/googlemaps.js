@@ -9,7 +9,8 @@ $(document).ready(function() {
             streetViewControl: false, 
             scaleControl: true, 
             mapTypeId: google.maps.MapTypeId.ROADMAP,
-            center: latLng
+            center: latLng,
+            scrollwheel: false
         };
 
         map = new google.maps.Map(document.getElementById('googlemaps'), mapOptions);

@@ -5,7 +5,7 @@
 	overflow: hidden; 
 	.col-md-4 {
 		position: relative;
-		height: 220px;
+		height: auto;
 		padding-left: 0;
 		padding-right: 0;
 		overflow: hidden;
@@ -30,6 +30,11 @@
 				display: inline-block;
 				font-size: 3em;
 				margin-bottom: 10px;
+				color: @fontBase;
+
+				&:hover {
+					text-decoration: none;
+				}
 			}
 
 			h2 {

@@ -3,21 +3,34 @@
 
 /********* SEARCH FORM **********/
 
-.navbar-form .search {
-    position: relative;
-    width: 100%;
-    margin-top: 5px;
-    padding: 7px 15px;
-    border: 1px solid @border;
-    box-shadow: 2px 2px 2px #445 inset;
-    color: @fontBase;
-    background: @lightBg;
+.navbar-form {
+
+	.form-wrapper {
+		position: relative;
+
+		.search {
+		    position: relative;
+		    width: 100%;
+		    margin-top: 5px;
+		    padding: 7px 15px;
+		    border: 1px solid @border;
+		    box-shadow: 2px 2px 2px #445 inset;
+		    color: @fontBase;
+		    background: @lightBg;
+		}
+
+		.icon {
+			position: absolute;
+			right: 10px;
+			top: 16px;
+		}
+	}
 }
 
 /********* CONTACT FORM **********/
 
 .contact {
-	height: 600px;
+	height: 640px;
 	position: relative;
 
 	#googlemaps {
@@ -25,7 +38,7 @@
 		top: 0;
 		left: 0;
 	    width: 100%;
-	    height: 600px;
+	    height: 640px;
 	}
 
 	.contact-field {
@@ -58,7 +71,7 @@
 
 		.form-control {
 			margin-bottom: 10px;
-			border: 1px solid $fontBase;
+			border: 1px solid @fontBase;
 			border-radius: 0;
 			box-shadow: 2px 2px 3px rgba(63,53,54,.3) inset;
 			resize: none;
@@ -67,6 +80,13 @@
 		textarea {
 			height: 190px;
 		}
+	}
+
+	.error-message {
+		color: @fontBase;
+		display: inline-block;
+		padding: 0 10px;
+		margin-bottom: 5px;
 	}
 }
 

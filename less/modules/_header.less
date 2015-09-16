@@ -100,8 +100,9 @@
             position: absolute;
             font-size: 100px;
             color: darken(@accentGrey, 10%);
-            top: 60px;
-            left: calc(62.5% - 25px);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -90%);
             display: inline-block;
             cursor: pointer;
 
@@ -113,16 +114,18 @@
 }
 
 /**** PLACES SUBPAGE ****/
+
 .subpage-image {
     height: 400px;
-    .imageBg("subbg.jpg");
     background-size: cover;
+    .imageBg("subbg.jpg");
 }
 
 /**** MEDIA QUERIES ***/
 
 @media screen and (max-width: 992px) {
     .navbar {
+
         .minified-menu {
             display: inline-block;
         }
@@ -134,6 +137,15 @@
 }
 
 @media screen and (max-width: 768px) {
+    .navbar-nav {
+        margin: 0;
+        margin-top: 8px;
+        
+        .open-modal {
+            padding-bottom: 15px;
+        }
+    }
+
     .search-content {
         display: none;
     }

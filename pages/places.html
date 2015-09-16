@@ -1,154 +1,107 @@
-<!DOCTYPE HTML>
-<html>
-
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Efigence camp</title>
-    <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../public/css/app.css">
-    <script src="../bower_components/angular/angular.min.js"></script>
-    <script src="../js/app/app.js"></script>
-</head>
-
-<body ng-app="hipsterTrip" ng-controller="placesCtrl as places">
-    <header>
-        <div class="container-fluid">
-            <section class="login-options">
-                <ul>
-                    <li><span class="icon" data-icon="&#xe614;"></span><a href="#">Dołącz przez FB</a></li>
-                    <li><span class="icon" data-icon="&#xe609;"></span><a href="#">Zaloguj się</a></li>
-                    <li><a href="#">Zarejestruj się</a></li>
-                </ul>
-            </section>
-            <nav class="clear navbar">
-                <div class="container-fluid">
-                    <div class="col-md-2 col-sm-3 col-xs-8">
-                        <a class="navbar-brand" href="../index.html"><span class="icon" data-icon="&#xe605;"></span><span class="bold">Hipster</span> Trip</a>
-                    </div>
-                    <div class="col-md-8 col-sm-5 col-xs-4 text-center">
-                        <ul class="nav navbar-nav minified-menu">
-                            <li><a href="#"> MENU </a></li>
-                        </ul>
-                        <ul class="nav navbar-nav standard-menu">
-                            <li><a href="../index.html#about"> Co to jest? </a></li>
-                            <li><a href="../index.html#news"> Aktualności </a></li>
-                            <li><a href="places.html"> Miejscówki </a></li>
-                            <li><a href="../index.html#contact"> Kontakt </a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-2 col-sm-4 search-content">
-                        <form class="navbar-form navbar-left">
-                            <div class="form-group">
-                                <input class="form-control search" type="text" placeholder="Szukaj...">
-                            </div>
-                        </form>
-                    </div>
+<section class="subpage-image">
+</section>
+<section class="table-options">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-md-offset-1">
+                <h1 class="title"> Miejscówki </h1>
+            </div>
+            <div class="col-lg-4 col-md-5 col-sm-6">
+                <div>
+                    <p> Wybierz: </p> <a href="#"> na mapie </a>
                 </div>
-            </nav>
-            <section class="subpage-image">
-            </section>
-        </div>
-    </header>
-
-    <section class="table-options">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-md-offset-1">
-                    <h1 class="title"> Miejscówki </h1>
-                </div>
-                <div class="col-md-4">
-                    <div>
-                        <p> Wybierz: </p> <a href="#"> na mapie </a>
-                    </div>
-                    <div>
+                <div>
                     <p> Sortuj wg: </p>
-                        <a href="#"> Oceny: od najnowszej </a><span class="icon" data-icon="&#xe60e;"></span>
-                        <a href="#"> Ceny: od najniższej </a><span class="icon" data-icon="&#xe60f;"></span>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <p> Wybierz okres od: </p> <span>2015-09-05</span> <span class="icon" data-icon="&#xe606;"></span>
-                    <p> do: </p> <span>2015-09-06</span> <span class="icon" data-icon="&#xe606;"></span>
+                    <a href="#"> Oceny: od najnowszej </a><span class="icon" data-icon="&#xe60e;"></span>
+                    <a href="#"> Ceny: od najniższej </a><span class="icon" data-icon="&#xe60f;"></span>
                 </div>
             </div>
+            <div class="col-md-3 col-sm-6">
+                <p> Wybierz okres od: </p> <span>2015-09-05</span> <span class="icon" data-icon="&#xe606;"></span>
+                <p> do: </p> <span>2015-09-06</span> <span class="icon" data-icon="&#xe606;"></span>
+            </div>
         </div>
-    </section>
-
-   <section class="information-table">
-        <div class="container-fluid">
-            <div ng-repeat="p in places.resultTable.places" class="row">
-                <div class="col-md-3 col-md-offset-1 col-sm-3 col-xs-8">
-                    <img src="../public/img/gallery1.jpg" alt="miejscowka1">
+    </div>
+</section>
+<section class="information-table">
+    <div class="container-fluid">
+        <div ng-repeat="p in places.resultTable.places" class="row">
+            <div class="col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-0 col-xs-8 col-xs-offset-2">
+                <img ng-src="public/img/gallery1.jpg" alt="zdjęcie miejscówki">
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <article>
+                    <h1 class="news-title"> {{ p.name }} </h1>
+                    <h2 class="news-details">{{ p.place }}, {{ p.district }} </h2>
+                    <div class="grade">
+                        <span ng-repeat="star in places.getRange(p.starts) track by $index" class="icon" data-icon="&#xe60c;"></span>
+                    </div>
+                    <p class="description">
+                        {{ p.description }}
+                    </p>
+                    <a class="read-more show-details"> Szczegóły </a>
+                </article>
+            </div>
+            <div class="col-md-1 col-sm-1 options">
+                <div class="col-md-6">
+                    <a ng-show="{{p.wifi}}" href="#" data-toggle="tooltip" title="Wifi" class="icon" data-icon="&#xe600;"></a>
+                    <a ng-show="{{p.tv}}" href="#" data-toggle="tooltip" title="TV" class="icon" data-icon="&#xe602;"></a>
+                    <a ng-show="{{p.food}}" href="#" data-toggle="tooltip" title="Restauracje" class="icon" data-icon="&#xe60a;"></a>
+                    <a ng-show="{{p.paypass}}" href="#" data-toggle="tooltip" title="Możliwośc płatności kartą debetową" class="icon" data-icon="&#xe601;"></a>
+                    <a ng-show="{{p.swimming}}" href="#" data-toggle="tooltip" title="Kąpieliska" class="icon" data-icon="&#xe604;"></a>
                 </div>
-                 <div class="col-md-4 col-sm-6 col-xs-12">
-                    <article>
-                        <h1 class="news-title"> {{ p.name }} </h1>
-                        <h2 class="news-details">{{ p.place }}, {{ p.district }} </h2>
-                        <div class="grade">
-                            <span ng-repeat="star in places.getRange(p.starts) track by $index" class="icon" data-icon="&#xe60c;"></span>
-                        </div>
-                        <p class="description"> 
-                            {{ p.description }}
-                        </p>
-                        <a href="#" class="read-more"> Szczegóły </a>
-                    </article>
+                <div class="col-md-6">
+                    <a ng-show="{{p.parking}}" href="#" data-toggle="tooltip" title="Parking" class="icon"> P </a>
+                    <a ng-show="{{p.airport}}" href="#" data-toggle="tooltip" title="Lotnosko" class="icon" data-icon="&#xe603;"></a>
                 </div>
-                <div class="col-md-1 col-sm-1 options">
+            </div>
+            
+            <div class="col-xs-8 col-xs-offset-2 minified-icons text-center">
                 <a ng-show="{{p.wifi}}" href="#" data-toggle="tooltip" title="Wifi" class="icon" data-icon="&#xe600;"></a>
                 <a ng-show="{{p.tv}}" href="#" data-toggle="tooltip" title="TV" class="icon" data-icon="&#xe602;"></a>
                 <a ng-show="{{p.food}}" href="#" data-toggle="tooltip" title="Restauracje" class="icon" data-icon="&#xe60a;"></a>
                 <a ng-show="{{p.paypass}}" href="#" data-toggle="tooltip" title="Możliwośc płatności kartą debetową" class="icon" data-icon="&#xe601;"></a>
                 <a ng-show="{{p.swimming}}" href="#" data-toggle="tooltip" title="Kąpieliska" class="icon" data-icon="&#xe604;"></a>
-                <a ng-show="{{p.airport}}" href="#" data-toggle="tooltip" title="Lotnosko" class="icon" data-icon="&#xe603;"></a>
                 <a ng-show="{{p.parking}}" href="#" data-toggle="tooltip" title="Parking" class="icon"> P </a>
-                </div>
-                <div class="col-md-2 col-sm-3 col-xs-6 price-details">
-                    <h1 class="rating"> {{places.getOpinion(p.score)}} {{ p.score }}/10 </h1>
-                    <h2 class="opinions-number"> Ocena na podstawie {{ p.opinion_count }} opinii </h2>
-                    <h3 class="before-discount"> {{ p.oldprice }},00 PLN </h3>
-                    <h4 class="after-discount">{{ p.price }},00 <span class="grey"> PLN </span> </h4>
-                    <h5 class="nights"> Cena za 3 noce </h5>
-                    <button class="btn"> Zarezerwuj teraz </button>
-                </div>
+                <a ng-show="{{p.airport}}" href="#" data-toggle="tooltip" title="Lotnosko" class="icon" data-icon="&#xe603;"></a>
             </div>
-        </div> 
-    </section>
+            
+            <div class="col-md-2 col-sm-3 col-sm-offset-0 col-xs-6 col-xs-offset-3 price-details">
+                <h1 class="rating"> {{places.getOpinion(p.score)}} {{ p.score }}/10 </h1>
+                <h2 class="opinions-number"> Ocena na podstawie {{ p.opinion_count }} opinii </h2>
+                <h3 class="before-discount"> {{ p.oldprice }},00 PLN </h3>
+                <h4 class="after-discount">{{ p.price }},00 <span class="grey"> PLN </span> </h4>
+                <h5 class="nights"> Cena za 3 noce </h5>
+                <button class="btn"> Zarezerwuj teraz </button>
+            </div>
 
-
-    <section class="paginate">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 text-center">
-                    <div class="list">
-                        <ul>
-                            <li ng-click="places.getPage($index+1)" class="page" ng-repeat="p in places.getRange(places.resultTable.total_pages) track by $index"> {{ $index + 1}} </li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="col-md-12 place-details">
+                <p class="description" style="color: #000;">
+                    {{ p.description }}
+                </p>
+                <a class="read-more close-details"> Ukryj szczegóły </a>
             </div>
         </div>
-    </section>
-   
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-8">
+    </div>
+</section>
+<section class="paginate">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 text-center">
+                <div class="prev col-md-4" ng-click="places.getPage(places.page - 1)">
+                    <span class="icon" data-icon="&#xe613;"></span>
+                    <a> Poprzednia strona </a>
+                </div>
+                <div class="list col-md-4 text-center">
                     <ul>
-                        <li><a class="read-more" href="#"> Polityka Prywatności </a></li>
-                        <li><a class="read-more" href="#"> Polityka Cookies </a></li>
-                        <li class="copyright"> Copyright (c)2015 Efigence S.A. </li>
+                        <li ng-click="places.getPage($index+1)" class="page" ng-class="{active: places.page == $index+1}" ng-repeat="p in places.getRange(places.resultTable.total_pages) track by $index"><a> {{ $index + 1}} </a></li>
                     </ul>
                 </div>
-                <div class=" col-md-1 col-md-offset-5 col-sm-2 col-sm-offset-2 social">
-                    <span class="icon" data-icon="&#xe614;"></span>
-                    <span class="icon" data-icon="&#xe615;"></span>
+                <div class="next col-md-4" ng-click="places.getPage(places.page + 1)">
+                    <a> Następna strona </a>
+                    <span class="icon" data-icon="&#xe611;"></span>
                 </div>
             </div>
         </div>
-    </footer>
-
-    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+    </div>
+</section>

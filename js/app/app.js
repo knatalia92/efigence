@@ -1,61 +1,32 @@
-var hipsterTrip = angular.module("hipsterTrip", []);
+var hipsterTrip = angular.module("hipsterTrip", ['ngRoute']);
 
-hipsterTrip.controller('formCtrl', function($http) {
-	
-	var form = this;
-	form.user = {};
-	form.error = {};
-	
-	form.submitForm = function($event) {
-		$event.preventDefault();
-		$http.post("http://camp.efigence.com/camp/api/contact", form.user).then(function(response) {
-			alert("Formularz wysłano poprawnie");
-			form.error = {};
-			form.user = {};
-		}, function(response) {
-			form.error = response.data.errors;
-		});
-	}
+hipsterTrip.config(function($routeProvider) {
+	$routeProvider
+
+	.when('/home', {
+		templateUrl: 'pages/home.html',
+		controller: 'formCtrl',
+		controllerAs: 'form'
+	})
+
+	.when('/places', {
+		templateUrl: 'pages/places.html',
+		controller: 'placesCtrl',
+		controllerAs: 'places'
+	})
+
+	.otherwise({
+		redirectTo: '/home'
+	})
 });
 
-hipsterTrip.controller('placesCtrl', function($http) {
-	
-	var places = this;
-	places.resultTable = [];
+hipsterTrip.controller('mainCtrl', function($location, $anchorScroll) {
+	var main = this;
 
-	places.getPage = function(page) {
-		var baseUrl = "http://camp.efigence.com/camp/api/places/?page=";
-		var url = baseUrl.concat(page);
-		$http.get(url).then(function(response) {
-			places.resultTable = response.data;
-			places.placesTable = response.data.places;
-
-		}, function(response) {
-			alert('not ok');
-		});
+	main.scrollTo = function(id) {
+		var old = $location.hash();
+		$location.hash(id);
+		$anchorScroll();
+		$location.hash(old);
 	}
-
-	places.getPage(1);
-
-	places.getOpinion = function(num) {
-        var opinion = '';
-
-        if (num <= 3.0) {
-            opinion = 'Słaby';
-        } else if (num > 3.0 && num <= 5.0) {
-            opinion = 'Średni';
-        } else if (num > 5.0 && num <= 7.0) {
-            opinion = 'Dobry';
-        } else if (num > 7.0 && num <= 9.0) {
-            opinion = 'Bardzo dobry';
-        } else if (num > 9.0) {
-            opinion = 'Rewelacyjny';
-        }
-
-        return opinion;
-	}
-
-	places.getRange = function(num) {
-		return new Array(num);
-	}
-});
+})

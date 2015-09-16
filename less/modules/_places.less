@@ -1,0 +1,293 @@
+@import "_variables";
+@import "_mixins";
+
+/********* PLACES DETAILS ***********/
+
+.table-options {
+	color: @darkBg;
+
+	.col-lg-4, .col-md-5, .col-md-3 {
+		padding: 35px 0;
+
+		p {
+			display: inline-block;
+			color: @accentGrey;
+			font-size: 1.17em;
+			font-family: Arial, sans-serif;
+		}
+
+		a {
+			color: @darkBg;
+			font-size: 1.17em;
+			font-family: Arial, sans-serif;
+		}
+
+		.icon {
+			display: inline-block;
+			padding-left: 3px;
+			font-size: 1.5em;
+			color: @accent;
+		}
+	}
+}
+
+.information-table {
+	.minified-icons {
+			display: none;
+	}
+
+	.container-fluid {
+		.place-details {
+			display: none;
+		}
+
+		.row {
+			&:nth-of-type(2n+1) {
+				background-color: @articleLightBg;
+			}
+		}
+	}
+
+	.row {
+		padding: 30px 0;
+		margin: 0;
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+
+		.col-md-1 {
+			border-left: 1px solid @accentGrey;
+			border-right: 1px solid @accentGrey;
+			padding: 0 5px;
+			text-align: center;
+
+			.col-md-6 {
+				padding: 0;
+			}
+
+
+			.icon {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				font-size: 20px;
+				padding: 5px;
+				color: @darkBg;	
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+
+	article {
+		.news-title {
+			color: @darkBg;	
+			font-size: 3em;
+		}
+
+		.news-details {
+			color: @accentGrey;
+			font-size: 2em;
+			margin-bottom: 10px;
+		}
+
+		.grade {
+			color: @accent;
+			font-size: 1.5em;
+			margin-bottom: 20px;
+		}
+
+		.description {
+			color: @darkBg;	
+		}
+
+	}
+
+	.price-details {
+		.rating {
+			color: @accent;
+			font-size: 2em;
+		}
+
+		.opinions-number {
+			color: @accentGrey;
+			font-size: 1.17em;
+			margin-bottom: 25px;
+		}
+
+		.before-discount {
+			color: @accentGrey;
+			font-size: 1.5em;
+			text-decoration: line-through;
+			margin-bottom: 10px
+		}
+
+		.after-discount {
+			color: @darkBg;
+			font-size: 3em;
+			margin-bottom: 5px;
+		}
+
+		.nights {
+			color: @darkBg;
+			font-size: 1.17em;
+			margin-bottom: 25px;
+		}
+
+		.grey {
+			color: @accentGrey;
+		}
+	}
+}
+@media screen and (max-width: 1200px) {
+	.table-options {
+		.col-md-3 {
+			p:first-of-type {
+				display: block;
+			}
+		}
+	}
+}
+
+
+@media screen and (max-width: 992px) {
+	.options {
+		display: none;
+	}
+
+	.title {
+		margin-top: 10px;
+	}
+
+	.table-options {
+		margin-left: 30px;
+
+		.col-md-5 {
+			padding: 10px 0;
+		}
+
+		.col-md-3 {
+			padding: 10px 0 20px 0;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.table-options {
+		text-align: center;
+	}
+
+	.information-table {
+		text-align: center;
+		
+		.price-details {
+			margin-top: 30px;
+			text-align: center;
+		}
+
+		.minified-icons {
+			display: block;
+			margin-top: 30px;
+			padding: 4px 0 10px 0;
+			border-top: 1px solid @accentGrey;
+			border-bottom: 1px solid @accentGrey;
+
+			.icon {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				font-size: 20px;
+				padding: 5px;
+				color: @darkBg;	
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+
+		article {
+			margin-top: 20px;
+			text-align: center;
+
+			.description {
+				display: none;
+			}
+		}
+
+	}
+	
+}
+
+/********** PAGINATION *************/
+
+.paginate {
+	background-color: @blueBg;
+
+	.col-md-10 {
+		float: none;
+		margin: 0 auto;
+		text-align: center;
+		overflow: hidden;
+		padding: 15px 0;
+	}
+
+	a {
+		color: @fontBase;
+		text-decoration: none;
+	}
+
+	.prev {
+		text-align: right;
+	}
+
+	.next {
+		text-align: left;
+	}
+
+	.prev, .next, .list {
+		display: inline-block;
+		font-size: 2em;
+		font-weight: 300;
+		cursor: pointer;
+
+		& a {
+			padding: 0 0.5%;
+			margin: 0 10px;
+		}
+	}
+	
+	ul li {
+		list-style: none;
+		display: inline-block;
+		padding-left: 5px;
+		padding-right: 5px;
+		margin: 0 3px;
+
+		&.active {
+			background-color: @accent;
+		}
+
+		&:hover {
+			background-color: @accent;
+			cursor: pointer;
+		}
+
+		a {
+			text-decoration: none;
+			color: @fontBase;
+		}
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.paginate {
+		.prev a, .next a {
+			display: none;
+		}
+	}
+}

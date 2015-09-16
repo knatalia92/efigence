@@ -14,10 +14,6 @@
     background-color: @darkBg;
     transition: opacity 0.3s;
 
-    &:target {
-        visibility: visible;
-        opacity: 1;
-    }
     
     .icon-close {
         display: inline-block;
@@ -48,7 +44,10 @@
     }
 
     /** NAVIGATION **/
-    
+    ul li {
+        list-style-type: none;
+    }
+
     ul li a {
         display: inline-block;
         padding: 10px 0;

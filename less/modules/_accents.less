@@ -1,6 +1,10 @@
 @import "_variables";
 @import "_mixins";
 
+a {
+	cursor: pointer;
+}
+
 /********** LINKS *************/
 
 .read-more {
@@ -19,60 +23,3 @@
 	color: @fontBase;
 }
 
-/********** PAGINATION *************/
-
-.paginate {
-	background-color: @blueBg;
-
-	.col-md-10 {
-		float: none;
-		margin: 0 auto;
-		text-align: center;
-		overflow: hidden;
-	}
-
-	a {
-		color: @fontBase;
-		text-decoration: none;
-	}
-
-	.prev, .next, .list {
-		display: inline-block;
-		font-size: 2em;
-		font-weight: 300;
-		padding: 15px 0;
-
-		& a {
-			padding: 0 0.5%;
-			margin: 0 10px;
-		}
-	}
-	
-	ul li {
-		list-style: none;
-		display: inline-block;;
-		padding: 8px 13px;
-
-		&.active {
-			background-color: @accent;
-		}
-
-		&:hover {
-			background-color: @accent;
-			cursor: pointer;
-		}
-
-		a {
-			text-decoration: none;
-			color: @fontBase;
-		}
-	}
-}
-
-@media screen and (max-width: 992px) {
-	.paginate {
-		.prev, .next {
-			display: none;
-		}
-	}
-}
