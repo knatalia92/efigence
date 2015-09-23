@@ -20,6 +20,10 @@
 			color: @darkBg;
 			font-size: 1.17em;
 			font-family: Arial, sans-serif;
+
+			&:hover {
+				text-decoration: none;
+			}
 		}
 
 		.icon {
@@ -37,10 +41,6 @@
 	}
 
 	.container-fluid {
-		.place-details {
-			display: none;
-		}
-
 		.row {
 			&:nth-of-type(2n+1) {
 				background-color: @articleLightBg;
@@ -142,6 +142,18 @@
 			color: @accentGrey;
 		}
 	}
+
+	.place-details {
+		margin-top: 20px;
+		margin-bottom: 20px;
+
+		.details-description {
+			margin-bottom: 10px;
+			font-size: 1.2em;
+			color: @darkBg;
+			font-family: Arial, sans-serif;
+		}
+	}
 }
 @media screen and (max-width: 1200px) {
 	.table-options {
@@ -208,6 +220,10 @@
 					text-decoration: none;
 				}
 			}
+		}
+
+		.place-details {
+			text-align: center;
 		}
 
 		article {
@@ -290,4 +306,55 @@
 			display: none;
 		}
 	}
+}
+
+
+/******* ANIMATIONS **********/
+/*** ng-repeat ***/
+.my-repeat-animation.ng-enter, 
+.my-repeat-animation.ng-leave, 
+.my-repeat-animation.ng-move {
+  -webkit-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+  position:relative;
+}
+
+.my-repeat-animation.ng-enter {
+  left:-10px;
+  opacity:0;
+}
+.my-repeat-animation.ng-enter.ng-enter-active {
+  left:0;
+  opacity:1;
+}
+
+.my-repeat-animation.ng-leave {
+  left:0;
+  opacity:1;
+}
+.my-repeat-animation.ng-leave.ng-leave-active {
+  left:-10px;
+  opacity:0;
+}
+
+.my-repeat-animation.ng-move {
+  opacity:0.5;
+}
+.my-repeat-animation.ng-move.ng-move-active {
+  opacity:1;
+}
+
+/*** ng-show-hide ***/
+
+.my-show-hide-animation.ng-hide-add,
+.my-show-hide-animation.ng-hide-remove {
+  -webkit-transition:0.5s linear all;
+  transition:0.5s linear all;
+
+  /* remember to add this */
+  display:block!important;
+  opacity:1;
+}
+.my-show-hide-animation.ng-hide {
+  opacity:0;
 }

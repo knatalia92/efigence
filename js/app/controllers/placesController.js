@@ -49,4 +49,24 @@ hipsterTrip.controller('placesCtrl', function($http, $routeParams) {
 	places.getRange = function(num) {
 		return new Array(num);
 	}
+
+	places.sort = function(key) {
+		places.sortKey = key;
+		places.reverse = !places.reverse;
+	}
+
+	places.showItem = null;
+	places.visible = false;
+
+	places.expand = function(item) {
+		places.showItem = item;
+	}
+
+	places.visible = function(item) {
+		return angular.equals(places.showItem, item);
+	}
+
+	places.hide = function() {
+		places.showItem = null;
+	}
 });

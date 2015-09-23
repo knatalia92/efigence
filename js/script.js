@@ -3,8 +3,7 @@ this.onload = function() {
 	var iconClose = document.querySelectorAll('.icon-close');
 	var link = document.querySelectorAll('.cover-menu li a');
 	var minifiedMenu = document.getElementById('menu');
-
-
+	
 	openModal[0].addEventListener('click', function(e) {
 		e.preventDefault();
 		minifiedMenu.style.visibility = "visible";

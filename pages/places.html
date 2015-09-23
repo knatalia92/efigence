@@ -12,8 +12,14 @@
                 </div>
                 <div>
                     <p> Sortuj wg: </p>
-                    <a href="#"> Oceny: od najnowszej </a><span class="icon" data-icon="&#xe60e;"></span>
-                    <a href="#"> Ceny: od najniższej </a><span class="icon" data-icon="&#xe60f;"></span>
+                    <a ng-click="places.sort('score')"> Ocenie: 
+                        <span ng-show="places.reverse"> od najwyższej <span class="icon" data-icon="&#xe60f;"></span></span>
+                        <span ng-show="!places.reverse"> od najniższej <span class="icon" data-icon="&#xe60e;"></span></span>
+                    </a>
+                    <a ng-click="places.sort('-price')"> Ceny: 
+                        <span ng-show="places.reverse"> od najniższej <span class="icon" data-icon="&#xe60e;"></span></span>
+                        <span ng-show="!places.reverse"> od najwyższej <span class="icon" data-icon="&#xe60f;"></span></span>
+                    </a>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6">
@@ -25,7 +31,7 @@
 </section>
 <section class="information-table">
     <div class="container-fluid">
-        <div ng-repeat="p in places.resultTable.places" class="row">
+        <div ng-repeat="p in places.resultTable.places |orderBy:places.sortKey:places.reverse" class="my-repeat-animation row">
             <div class="col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-0 col-xs-8 col-xs-offset-2">
                 <img ng-src="public/img/gallery1.jpg" alt="zdjęcie miejscówki">
             </div>
@@ -39,7 +45,7 @@
                     <p class="description">
                         {{ p.description }}
                     </p>
-                    <a class="read-more show-details"> Szczegóły </a>
+                    <a ng-show="!places.visible(p)" ng-click="places.expand(p)" class="read-more show-details"> Szczegóły </a>
                 </article>
             </div>
             <div class="col-md-1 col-sm-1 options">
@@ -75,11 +81,13 @@
                 <button class="btn"> Zarezerwuj teraz </button>
             </div>
 
-            <div class="col-md-12 place-details">
-                <p class="description" style="color: #000;">
+            <div class="col-xs-3"></div>
+
+            <div ng-show="places.visible(p)" class="col-md-10 col-xs-12 col-md-offset-1 place-details my-show-hide-animation">
+                <p class="details-description">
                     {{ p.description }}
                 </p>
-                <a class="read-more close-details"> Ukryj szczegóły </a>
+                <a ng-click="places.hide()" class="read-more close-details"> Ukryj szczegóły </a>
             </div>
         </div>
     </div>
